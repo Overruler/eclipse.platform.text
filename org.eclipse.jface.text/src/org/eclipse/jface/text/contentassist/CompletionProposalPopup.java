@@ -6,6 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
+ *     Timo Kinnunen - Contributions for bug 377373 - [subwords] known limitations with JDT 3.8
  *     IBM Corporation - initial API and implementation
  *     Sean Montgomery, sean_montgomery@comcast.net - https://bugs.eclipse.org/bugs/show_bug.cgi?id=116454
  *     Marcel Bruch, bruch@cs.tu-darmstadt.de - [content assist] Allow to re-sort proposals - https://bugs.eclipse.org/bugs/show_bug.cgi?id=350991
@@ -1508,6 +1509,15 @@ class CompletionProposalPopup implements IContentAssistListener {
 		if (proposals == null) {
 			fIsFilteredSubset= false;
 			return null;
+		}
+
+		if (fSorter == null) {
+			// recompute proposals to get better sorting
+			fIsFilteredSubset= false;
+			fInvocationOffset= offset;
+			fContentAssistant.fireSessionRestartEvent();
+			fComputedProposals= computeProposals(fInvocationOffset);
+			return fComputedProposals;
 		}
 
 		IDocument document= fContentAssistSubjectControlAdapter.getDocument();
