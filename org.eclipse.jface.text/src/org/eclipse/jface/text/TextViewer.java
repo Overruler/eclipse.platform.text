@@ -1751,6 +1751,7 @@ public class TextViewer extends Viewer implements
 	 */
 	protected StyledText createTextWidget(Composite parent, int styles) {
 		StyledText styledText= new StyledText(parent, styles);
+		styledText.setAlwaysShowScrollBars(false);
 		styledText.setLeftMargin(Math.max(styledText.getLeftMargin(), 2));
 		return styledText;
 	}
