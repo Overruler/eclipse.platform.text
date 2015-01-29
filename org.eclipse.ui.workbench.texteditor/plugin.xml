@@ -472,12 +472,12 @@
 	        commandId="org.eclipse.ui.edit.findIncremental"
 	        contextId="org.eclipse.ui.textEditorScope"
 			schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
-	        sequence="M1+J"/>
+	        sequence="M1+F"/>
 	  <key
 	        commandId="org.eclipse.ui.edit.findIncrementalReverse"
 	        contextId="org.eclipse.ui.textEditorScope"
 			schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
-	        sequence="M1+M2+J"/>
+	        sequence="M1+R"/>
 	  <key
 	        commandId="org.eclipse.ui.edit.text.goto.line"
 	        contextId="org.eclipse.ui.textEditorScope"
